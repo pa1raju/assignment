@@ -1,0 +1,54 @@
+<h2>Add Product</h2>
+<form [formGroup]="addProductForm">
+    <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" formControlName="productName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" />
+        <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+            <div *ngIf="f.productName.errors.required">Product Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="categoryId">Category ID</label>
+        <input type="text" formControlName="categoryId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryId.errors }" />
+        <div *ngIf="submitted && f.categoryId.errors" class="invalid-feedback">
+            <div *ngIf="f.categoryId.errors.required">Category name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="categoryName">Category Name</label>
+        <input type="text" formControlName="categoryName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryName.errors }" />
+        <div *ngIf="submitted && f.categoryName.errors" class="invalid-feedback">
+            <div *ngIf="f.categoryName.errors.required">categoryName is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="unitprice">Unit Price</label>
+        <input type="unitprice" formControlName="unitprice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.unitprice.errors }" />
+        <div *ngIf="submitted && f.unitprice.errors" class="invalid-feedback">
+            <div *ngIf="f.unitprice.errors.required">Price is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <input type="status" formControlName="status" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.status.errors }" />
+        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+            <!-- <div *ngIf="f.status.errors.required">Password is required</div>
+            <div *ngIf="f.status.errors.minlength">Password must be at least 6 characters</div> -->
+        </div>
+    </div>
+<!--     <div class="form-group">
+        <label for="password">Availa</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div> -->
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary" (click)="saveProduct()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1" ></span>
+            Submit
+        </button>
+        <a (click)="onNoClick()" class="btn btn-link">Cancel</a>
+    </div>
+</form>
